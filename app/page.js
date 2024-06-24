@@ -1,3 +1,5 @@
+import Table from "@/components/Table";
+
 export default function Home() {
   return (
     <>
@@ -20,6 +22,7 @@ export default function Home() {
           Add Task
         </button>
       </form>
+      <Table />
     </>
   );
 }
