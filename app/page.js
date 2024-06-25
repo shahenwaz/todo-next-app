@@ -3,11 +3,13 @@ import Table from "@/components/Table";
 import { useState } from "react";
 
 export default function Home() {
+  // Using useState hook to store the form data
   const [formData, setFormData] = useState({
     title: "",
     description: "",
   });
 
+  // Collecting the data from the form
   const onChangeHandler = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -15,9 +17,17 @@ export default function Home() {
     console.log(formData);
   };
 
+  // To prevent the page from reloading when the form is submitted
+  const onSubmitHandler = async (e) => {
+    e.preventDefault();
+  };
+
   return (
     <>
-      <form className="flex items-start flex-col gap-2 w-[80%] max-w-[600px] mt-16 px-2 mx-auto">
+      <form
+        onSubmit={onSubmitHandler}
+        className="flex items-start flex-col gap-2 w-[80%] max-w-[600px] mt-16 px-2 mx-auto"
+      >
         <input
           value={formData.title}
           onChange={onChangeHandler}
